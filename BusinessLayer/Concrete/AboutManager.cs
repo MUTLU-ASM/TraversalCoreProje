@@ -28,7 +28,7 @@ namespace BusinessLayer.Concrete
             _aboutDal.Delete(t);
         }
 
-        public List<About> TGetAll()
+        public List<About> TGetList()
         {
             return _aboutDal.GetList();
         }
