@@ -14,14 +14,14 @@ namespace TraversalCoreProje.Controllers
             return View(values);
         }
         [HttpGet]
-        public IActionResult DestinationDeatails(int id)
+        public IActionResult DestinationDetails(int id)
         {
             ViewBag.Id = id;    
             var values = destinationManager.TGetByID(id);
             return View(values);
         }
         [HttpPost]
-        public IActionResult DestinationDeatails(Destination destination)
+        public IActionResult DestinationDetails(Destination destination)
         {
             return View();
         }
