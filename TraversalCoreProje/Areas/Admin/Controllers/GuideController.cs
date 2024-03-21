@@ -28,6 +28,7 @@ namespace TraversalCoreProje.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult AddGuide(Guide guide)
         {
+            guide.Status = true;
             _guideService.TAdd(guide);
             return RedirectToAction("Index");
         }
