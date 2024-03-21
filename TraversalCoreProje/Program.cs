@@ -11,6 +11,16 @@ using TraversalCoreProje.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddLogging(x =>
+{
+    x.ClearProviders();
+    x.SetMinimumLevel(LogLevel.Debug);
+    x.AddDebug();
+
+    var path = Directory.GetCurrentDirectory();
+    x.AddFile($"{path}\\Logs\\Log1.txt");
+});
+
 // Add services to the container.
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
@@ -28,7 +38,20 @@ builder.Services.AddMvc(config =>
 
 builder.Services.AddMvc();
 
+//ILoggerFactory loggerFactory;
+//var path = Directory.GetCurrentDirectory();
+//loggerFactory.AddFile($"{path}\\Logs\\Log1.txt");
+
+//var loggerFactory = LoggerFactory.Create(builder =>
+//{
+//    builder.AddFile($"{Directory.GetCurrentDirectory()}\\Logs\\Log1.txt");
+//});
+
+//builder.Services.AddSingleton(loggerFactory);
+//builder.Services.AddLogging();
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -40,6 +63,8 @@ if (!app.Environment.IsDevelopment())
 app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404", "?code={0}");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+
 
 //Authentication,bir kullanýcýnýn herhangi bir kaynaða eriþimde kimliðinin doðrulanmasý iþlemidir. 
 //Kullanýcýya Kimsin sorusu sorulur? Bu sorunun cevabý genellikle kullanýcýnýn kullanýcý  adý ve  þifre þeklinde cevap vermesiyle yanýtlanýr.
