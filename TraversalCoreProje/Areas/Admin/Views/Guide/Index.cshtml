@@ -16,6 +16,7 @@
         <th>Açıklama</th>
         <th>Durum</th>
         <th>Düzenle</th>
+        <th>Sil</th>
     </tr>
     @foreach (var x in Model)
     {
@@ -26,16 +27,17 @@
             <td>@x.Name</td>
             <td>@x.Description</td>
             <td>
-                @if (x.Status==true)
+                @if (x.Status == true)
                 {
-                    <a href="#" class="btn btn-outline-warning">Pasif Yap</a>
+                    <a href="/Admin/Guide/ChangeToFalse/@x.GuideId" class="btn btn-outline-warning">Pasif Yap</a>
                 }
                 else
                 {
-                    <a href="#" class="btn btn-outline-info">Aktif Yap</a>
+                    <a href="/Admin/Guide/ChangeToTrue/@x.GuideId" class="btn btn-outline-info">Aktif Yap</a>
                 }
             </td>
-            <td><a href="/Admin/Destination/UpdateDestination/@x.GuideId" class="btn btn-outline-success">Düzenle</a></td>
+            <td><a href="/Admin/Guide/EditGuide/@x.GuideId" class="btn btn-outline-success">Düzenle</a></td>
+            <td><a href="/Admin/Guide/DeleteGuide/@x.GuideId" class="btn btn-outline-danger">Sil</a></td>
         </tr>
     }
 </table>
