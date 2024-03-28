@@ -1,0 +1,28 @@
+﻿@model VisitorViewModel
+@{
+    ViewData["Title"] = "AddVisitor";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Api ile Yeni Ziyaretçi Oluşturma Sayfası</h1>
+
+<br />
+
+<form method="post">
+    <label>Adı</label>
+    <input type="text" class="form-control" asp-for="Name" />
+    <br />
+    <label>Soyadı</label>
+    <input type="text" class="form-control" asp-for="SurName" />
+    <br />
+    <label>Mail Adresi</label>
+    <input type="text" class="form-control" asp-for="Mail" />
+    <br />
+    <label>Şehri</label>
+    <input type="text" class="form-control" asp-for="City" />
+    <br />
+    <label>Ülkesi</label>
+    <input type="text" class="form-control" asp-for="Country" />
+    <br />
+    <button class="btn btn-outline-primary">Kaydet</button>
+</form>
