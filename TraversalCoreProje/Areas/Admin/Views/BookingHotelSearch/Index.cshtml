@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BookingHotelSearchViewModel.Result>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+    double score;
+}
+
+<h1>Booking Otel Rezervasyon Sayfası</h1>
+
+<h3>Arama Yapılan Şehir: Paris/Fransa</h3>
+
+
+<table class="table table-striped">
+    <tr>
+        <th>#</th>
+        <th>Otel Adı</th>
+        <th>Otel Puanı</th>
+        <th>Otel Değerlendirmesi</th>
+        <th>Detaylar</th>
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@x.hotel_name</td>
+            @{
+                score = double.Parse(x.review_score.ToString()) / 10;
+            }
+            <td>@score</td>
+            @switch (x.review_score_word)
+                {
+                    case "Olağanüstü":<td>★★★★★ (Olağanüstü)</td>; break;
+                    case "Müthiş":<td>★★★★ (Müthiş)</td>;break;
+                    case "Fevkalade":<td>★★★ (Fevkalade)</td>;break;
+                    case "Çok iyi":<td>★★ (Çok iyi)</td>;break;
+                    case "İyi":<td>★ (İyi)</td>; break;
+                    default:<td>☆ (-)</td>; break;
+                }
+            <td><a href="#" class="btn btn-outline-dark">Detay</a></td>
+        </tr>
+    }
+</table>
