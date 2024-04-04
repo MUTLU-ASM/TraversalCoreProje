@@ -34,6 +34,8 @@ builder.Services.CustomerValidator();
 
 builder.Services.AddScoped<GetAllDestinationQueryHandler>();
 builder.Services.AddScoped<GetDestinationByIDQueryHandler>();
+builder.Services.AddScoped<RemoveDestinationCommandHandler>();
+builder.Services.AddScoped<UpdateDestinationCommandHandler>();
 builder.Services.AddScoped<CreateDestinationCommandHandler>();
 
 builder.Services.AddControllersWithViews().AddFluentValidation();
