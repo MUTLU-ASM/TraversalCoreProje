@@ -33,6 +33,8 @@ builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.CustomerValidator();
 
 builder.Services.AddScoped<GetAllDestinationQueryHandler>();
+builder.Services.AddScoped<GetDestinationByIDQueryHandler>();
+builder.Services.AddScoped<CreateDestinationCommandHandler>();
 
 builder.Services.AddControllersWithViews().AddFluentValidation();
 

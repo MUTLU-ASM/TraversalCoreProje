@@ -27,11 +27,11 @@
             <td>@x.city</td>
             <td>@x.daynight</td>
             <td>@x.capacity</td>
-            <td>@x.price</td>
+            <td>@x.price ₺</td>
             <td><a href="/Admin/ContactUs/DeleteMessage/@x.id" class="btn btn-outline-danger">Sil</a></td>
-            <td><a href="/Admin/Comment/LookMessage/@x.id" class="btn btn-outline-success">Güncelle</a></td>
+            <td><a href="/Admin/DestinationCQRS/GetDestination/@x.id" class="btn btn-outline-success">Güncelle</a></td>
         </tr>
     }
 </table>
 
-<a href="#" class="btn btn-outline-dark">Yeni Tur Rotası Girişi</a>
+<a href="/Admin/DestinationCQRS/AddDestination" class="btn btn-outline-dark">Yeni Tur Rotası Girişi</a>
